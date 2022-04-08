@@ -1,6 +1,5 @@
 #!/usr/bin/php 
 <?php
-//date_default_timezone_set('europe/paris');
 function	ft_get_index($array, $name)
 {
     $i = 1;
