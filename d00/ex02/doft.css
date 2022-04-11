@@ -86,7 +86,7 @@ body {
 .small {
   height: 20px;
   width: 20px;
-  float: right;
+  float: left;
 }
 
 #top_image {
@@ -94,7 +94,7 @@ body {
   float: left;
 }
 
-#loupe {
+#magnify {
   margin-left: 659px;
   float: left;
 }
@@ -123,37 +123,34 @@ body {
   margin-top: 2px;
 }
 
-.form {
+.format {
   width: 520px;
   height: 170px;
-  border: 0px;
-  border-style: solid;
   color: black;
-  background-color: #68f97e;
+  background-color: rgb(166, 251, 150);
   border-radius: 10px;
   box-shadow: 10px 10px 10px black;
   display: block;
   margin-left: -75px;
   margin-top: 505px;
-  z-index: 10;
   position: absolute;
   font-family: sans-serif;
-  letter-spacing: 0.70px;
+  letter-spacing: 0.7px;
   font-size: 17px;
   text-align: left;
 }
 
-.form p {
+.format p {
   display: inline;
 }
-.form h2 {
-  display: inline;
+.format h2 {
   font-family: Georgia;
   font-size: 32px;
   font-weight: lighter;
+  display: inline;
 }
 
-.form h3 {
+.format h3 {
   font-family: sans-serif;
   letter-spacing: 0.65px;
   font-size: 17px;
@@ -163,7 +160,7 @@ body {
   font-weight: normal;
 }
 
-.form input[type="text"] {
+.format input[type="text"] {
   width: 380px;
   height: 14px;
   margin-left: 13px;
@@ -175,11 +172,10 @@ body {
   border-top-color: #9d969d;
 }
 
-.form input[type="submit"] {
+.format input[type="submit"] {
   width: 80px;
   height: 20px;
   margin-left: 4px;
-  margin-bottom: 0;
   border-radius: 1px;
   text-align: center;
   font-size: 13px;
