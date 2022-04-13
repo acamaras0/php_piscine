@@ -1,5 +1,6 @@
 #!/usr/bin/php 
 <?php
+date_default_timezone_set('europe/paris');
 function	ft_get_index($array, $name)
 {
     $i = 1;
@@ -9,14 +10,14 @@ function	ft_get_index($array, $name)
             return $i;
         ++$i;
     }
-    return (-1);
+    return (0);
 }
 
 if ($argc != 2)
     return;
 $d = array("lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche");
 $m = array ("janvier" , "février", "mars" , "april", "mai" , "juin", "juillet" , "août", "septembre", "octobre" , "novembre" , "décembre");
-if (preg_match("/^([A-Za-z]+) (\d{1,2}) ([A-Za-z]+) (\d{4}) (\d{2}):(\d{2}):(\d{2})$/", $argv[1], $out))
+if (preg_match("/^([A-Za-z][a-zàâçéèêëîïôûùüÿñæœ]+) (\d{1,2}) ([A-Za-z][a-zàâçéèêëîïôûùüÿñæœ]+) (\d{4}) (\d{2}):(\d{2}):(\d{2})$/", $argv[1], $out))
 {
     $out[1][0] = strtolower($out[1][0]);
     $out[3][0] = strtolower($out[3][0]);
