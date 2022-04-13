@@ -1,30 +1,15 @@
-#!/usr/bin/php 
-<?php 
-function ft_replace($matches)
-{	
-    return ('title='.strtoupper($matches[1]));
-}
-function ft_replace_cnt($matches)
-{
-    return (">".strtoupper($matches[1])."<");
-}
-function ft_a($matches)
-{
-    $str = preg_replace_callback('/title=(\s*["\'][^"\']*)/', "ft_replace", $matches[1]);
-    if (preg_match("/<.*/", $matches[2]))
-    {
-        $tmp = preg_replace_callback('/title=(\s*["\'][^"\']*)/', "ft_replace", $matches[2]);
-        $tmp = preg_replace_callback("/>([^<]*)</", "ft_replace_cnt", $tmp);
-        $str = $str.$tmp.$matches[3];
-    }
-    else
-        $str = $str.strtoupper($matches[2]).$matches[3];
-    return ($str);
-}
-if ($argc == 2 && file_exists($argv[1]))
-{
-    $str = file_get_contents($argv[1]);
-    echo preg_replace_callback("/(<a [^>]*)(>.*?)(<\/a>)/sim", "ft_a", $str);
-}
-return ;
+#!/usr/bin/php
+<?php
+    $title = "/<a.*?title.*?\"(.*?)\"/ism";
+    $link = "/<a .*?>(.*?)</ism";
+    $str = implode("", file($argv[1]));
+    preg_match_all($title, $str, $match0);
+    preg_match_all($link, $str, $match1);
+    $match0 = array_slice($match0, 1);
+    $match1 = array_slice($match1, 1);
+    foreach ($match1[0] as $string)
+        $str = str_replace($string, strtoupper($string), $str);
+    foreach ($match0[0] as $string)
+        $str = str_replace($string, strtoupper($string), $str);
+    echo $str;
 ?>
