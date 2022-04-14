@@ -1,6 +1,6 @@
 #!/usr/bin/php 
 <?php
-date_default_timezone_set('europe/paris');
+date_default_timezone_set('Europe/Paris');
 
 $d = array(1 => "lundi", 2 =>"mardi", 3 => "mercredi",
            4 => "jeudi", 5 => "vendredi", 6 => "samedi", 7 => "dimanche");
@@ -11,10 +11,13 @@ $m = array (1 => "janvier" , 2 => "février", 3 => "mars" , 4 => "april",
 if ($argc == 2)
 {
     $date = explode(" ", $argv[1]);
+    $pattern_day = "/^[1-9]$|0[1-9]|[1-2][0-9]|3[0-1]$/";
+    $pattern_year = "/^[0-9]{4}$/";
+    $pattern_time = "/^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/";
     if (count($date) != 5 ||
-        preg_match("/^[1-9]$|0[1-9]|[1-2][0-9]|3[0-1]$/", $date[1], $date[1]) === 0 ||
-        preg_match("/^[0-9]{4}$/", $date[3], $date[3]) === 0 ||
-        preg_match("/^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $date[4], $date[4]) === 0) 
+        preg_match($pattern_day, $date[1], $date[1]) === 0 ||
+        preg_match($pattern_year, $date[3], $date[3]) === 0 ||
+        preg_match($pattern_time, $date[4], $date[4]) === 0) 
         {
             echo "Wrong Format\n";
             return ;
