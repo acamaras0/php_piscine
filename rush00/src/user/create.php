@@ -1,18 +1,17 @@
 <div class= "login">
     <h1>Create account</h1>
     <form action="" method="POST">
-        Login: <input type="text" name="login" value=""/>
+        Login: <input type="text" name="login" value="" />
         <br />
-        Password: <input type="text" name="passwd"value=""/>
-        <br>
+        Password: <input type="text" name="passwd" value="" />
+        <br />
+        Confirm password: <input type="text" name="conf_passwd" value="" />
         <input type="submit" name="submit" value="OK" />
     </form>
-    <br/>
-    <div><a href="index.php?page=create">create account</div>
 </div>
 
 <?php
-    if($_POST["login"] && $_POST["passwd"] &&
+    if($_POST["login"] && $_POST["passwd"] && $_POST["conf_passwd"] &&
        $_POST["submit"] && $_POST["submit"] == "OK")
     {
         if(file_exists("../private") == false)
