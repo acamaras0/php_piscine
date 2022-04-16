@@ -11,7 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> BuyToy </title>
-    <link rel="stylesheet" href="css/ ***.css"/>
+    <link href="css/about.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -21,7 +23,6 @@
                     <ul class="dropdown"> 
                         <li><a href="index.php?page=items&category=1">Fluffy</a></li>
                         <li><a href="index.php?page=items&category=2">Solid</a></li>
-                        <li><a href="index.php?page=items&category=3">Subscribe</a></li>
                     </ul>
                 </li>
                     <?php
