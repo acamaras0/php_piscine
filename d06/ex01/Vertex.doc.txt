@@ -1,0 +1,18 @@
+<- Vertex ----------------------------------------------------------------------
+The Vertex class handles 3D vertexes.
+
+An instance can be constructed from 3 coordinates: "x" , "y", "z", the optional one,
+the homogenous coordinate "w" and a variable "color" from the Color Class.
+
+The default value of "color" is rgb(255, 255, 255), or "white".
+The default value of "w" is 1.0.
+
+Example of an instance when the color and the coordinat "w" are not used:
+new Vertex( array( 'x' => 1.0, 'y' => 0.0, 'z' => 0.0 ) );
+
+Example of an instance when the color and the coordinat "w" are used:
+new Vertex(array( 'x' => 1.0, 'y' => 0.0, 'z' => 0.0, 'w' => 2.0), 'color' => $green) );
+
+All the parameters are private, that is why we need to use the special accessors _get &&
+__set.
+---------------------------------------------------------------------- Vertex ->
