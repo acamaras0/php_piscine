@@ -11,10 +11,9 @@ class Color
     {
         if (isset($kwargs['rgb']))
         {
-            $color = intval($kwargs['rgb']);
-            $this->red = $color / 65536;
-            $this->green = $color % 65536 / 256;
-            $this->blue = $color % 65536 % 256;
+            $this->red = $kwargs['rgb'] >> 16 & 0xFF;
+            $this->green = $kwargs['rgb'] >> 8 & 0xFF;
+            $this->blue = $kwargs['rgb'] & 0xFF;
         }
         else if (isset($kwargs['red']) && isset($kwargs['blue']) && isset($kwargs['green']))
         {
@@ -29,7 +28,7 @@ class Color
     function __destruct()
     {
         if (self::$verbose)
-            printf($this . " deconstructed.\n");
+            printf($this . " destructed.\n");
     }
 
     function __toString()
@@ -40,7 +39,7 @@ class Color
 
     static function doc()
     {
-        echo file_get_contents("Color.doc.txt"). "\n";
+        return (file_get_contents("Color.doc.txt"));
     }
 
     function add(Color $add)
