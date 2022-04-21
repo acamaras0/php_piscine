@@ -12,5 +12,4 @@
         }
         abstract public function fight($n);
     }
-
 ?>
