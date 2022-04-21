@@ -38,7 +38,7 @@
 
         public function __toString()
         {
-            return ($str = sprintf("Vector( x:%.2f, x:%.2f, x:%.2f, x:%.2f )", 
+            return ($str = sprintf("Vector( x:%.2f, y:%.2f, z:%.2f, w:%.2f )", 
                     $this->_x, $this->_y, $this->_z, $this->_w ));
         }
 
@@ -96,7 +96,7 @@
         {
             return (new Vector(array('dest' => new Vertex(array('x' => $this->_y * $rhs->getZ() - $this->_z * $rhs->getY(),
                                                                 'y' => $this->_z * $rhs->getX() - $this->_x * $rhs->getZ(),
-                                                                'z' => $this->_y * $rhs->getY() - $this->_y * $rhs->getX())))));
+                                                                'z' => $this->_x * $rhs->getY() - $this->_y * $rhs->getX())))));
         }
         
         public function cos(Vector $rhs)
