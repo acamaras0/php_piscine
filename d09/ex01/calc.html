@@ -6,14 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <style>
-
+        *, *::before, *::after {
+            box-sizing:content-box;
+            font-family:Georgia, 'Times New Roman', Times, serif ;
+            font-weight: normal;
+        }
+        body {
+            margin: 0;
+            padding-top: 20vw;
+            padding-left: 20vw;
+            background: linear-gradient(to right, rgb(193, 62, 241), yellow);
+        }
+        .calculator {
+            width: 600px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body form#calculator input[type="text"],
+        body form#calculator button[type="submit"]
+        {
+            font-size: 22px;
+            padding: 10px;
+            background-color: rgb(58, 216, 216);
+            color: rgb(0, 0, 0);
+        }
+        button#submit {
+            font-size: 20px;
+            padding: 5px;
+            background: linear-gradient( rgb(247, 0, 255), blue);
+            color:aliceblue;
+            border-radius: 90%;
+        }
+        select
+        {
+            background: linear-gradient(rgb(247, 0, 255), blue);
+            color:aliceblue;
+            border-radius: 80%;
+        }
     </style>
+    <script>
+        function calculator()
+        {
+            const operation = document.getElementById("operation").value;
+            var operand1 = parseInt(document.getElementById("operand1").value);
+            var operand2 = parseInt(document.getElementById("operand2").value);
+
+            if(operand1 < 0 || operand2 < 0)
+            {                
+                alert("Error :(");
+                return false;
+            }    
+            switch (operation){
+                case ("+"): 
+                    result(operand1 + operand2);
+                    break;
+                case ("-"): 
+                    result(operand1 - operand2);
+                    break;
+                case ("*"): 
+                    result(operand1 * operand2);
+                    break;
+                case ("÷"): 
+                    if (operand2 == 0)
+                        result("It's over 9000!");
+                    else
+                        result(operand1 / operand2);
+                    break;
+                case ("%"): 
+                    if (operand2 == 0)
+                        result("It's over 9000!");
+                    else
+                        result(operand1 % operand2);
+                    break;
+            }
+        }    
+        function result(value)
+        {
+            console.log(value);
+            alert(value);
+        }
+    </script>
 </head>
 <body>
-    <div id="calculator"></div>
-    <script>
-
-
-    </script>
+    <form id="calculator" onsubmit="calculator()" action="">
+        <input id="operand1" type="text"> 
+    <select id="operation" name = "operation" type="text" style="font-size: 20px; padding: 5px;">
+    <option>+</option>
+    <option>-</option>
+    <option>*</option>
+    <option>÷</option>
+    <option>%</option>
+    </select>
+    <input id="operand2" type="text">
+    <input id="submit" type="submit" name="submit" value="Try me!" style="font-size: 20px; padding: 5px;"></input>
+</form>
 </body>
 </html>
