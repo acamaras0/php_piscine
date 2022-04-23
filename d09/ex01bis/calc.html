@@ -62,7 +62,12 @@
             var operand1 = parseFloat($("#operand1").val());
             var operand2 = parseFloat($("#operand2").val());
 
-            if(operand1 < 0 || operand2 < 0)
+            function isInt(n)
+            {
+                return n % 1 !== 0;
+            }
+
+            if((operand1 < 0 || operand2 < 0) || isInt(operand1) || isInt(operand2))
             {                
                 alert("Error :(");
                 return false;
@@ -99,7 +104,7 @@
     </script>
 </head>
 <body>
-    <img src="https://i.kym-cdn.com/entries/icons/mobile/000/024/785/Screen_Shot_2017-11-30_at_1.12.37_PM.jpg" alt="wordart-1"></>
+    <img src="https://i.kym-cdn.com/entries/icons/mobile/000/024/785/Screen_Shot_2017-11-30_at_1.12.37_PM.jpg" alt="wordart-1">
     <form id="calculator" onsubmit="calculator()" action="">
         <input id="operand1" type="text"> 
     <select id="operation" name = "operation" type="text" style="font-size: 20px; padding: 5px;">
