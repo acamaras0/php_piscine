@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        div
+        {
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            margin: auto;
+            margin-top: 20vw;
+        }
+    </style>
+</head>
+<body>
+    <div id="balloon"></div>
+    <script>
+        const baloon = $('#balloon');
+        const colors = ['green', 'blue', 'red'];
+        var index = 0;
+        var click_checker = 0;
+        
+        baloon.click(function()
+        {
+            baloon.css("background-color", colors[index]);
+
+            index = index >= colors.length - 1 ? 0 : index + 1;
+            if (baloon.height() < 420)
+            {
+                baloon.height(baloon.height() + 10 + "px");
+                baloon.width(baloon.width() + 10 + "px");
+            }
+            else
+            {
+                baloon.height(200 + "px");
+                baloon.width(200 + "px");
+            }
+            click_checker = 1;
+        });
+
+        baloon.mouseleave(function()
+        {
+            if (click_checker == 0)
+            {
+                index--;
+                if (index < 0)
+                {
+                    index = 2;
+                }
+                baloon.css("background-color", colors[index]);
+                if (baloon.height() > 200)
+                {
+                    baloon.height(baloon.height() - 5 + "px");
+                    baloon.width(baloon.width() - 5 + "px");
+                }
+            }
+            click_checker = 0;
+        });
+    </script>
+</body>
+</html>

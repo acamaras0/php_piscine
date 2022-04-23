@@ -1,9 +1,10 @@
 var ft_list;
 var cookie = [];
 
-window.addEventListener("load", (event)=>{
-    document.querySelector("#new").addEventListener("click", newTask);
-    ft_list = document.querySelector("#ft_list");
+$(document).ready(function(){
+    $("#new").click(newTask);
+    ft_list = $("#ft_list");
+    $("#ft_list div").click(deleteTask);
     var temp = document.cookie;
     if (temp)
     {
@@ -15,19 +16,16 @@ window.addEventListener("load", (event)=>{
     }
 });
 
-window.addEventListener("unload", (event)=>{
-    var task = ft_list.children;
+$(window).on("unload", function(){
+    var task = ft_list.children();
     var newCookie = [];
     for (var i = 0; i < task.length; i++)
-    newCookie.unshift(task[i].innerHTML);
+        newCookie.unshift(task[i].innerHTML);
     document.cookie = JSON.stringify(newCookie);
 });
 
 function addTask(task){
-    var div = document.createElement("div");
-    div.innerHTML = task;
-    div.addEventListener("click", deleteTask);
-    ft_list.insertBefore(div, ft_list.firstChild);
+    ft_list.prepend($('<div>'+ task + '</div>').click(deleteTask));
 }
 
 function newTask(){
@@ -39,6 +37,6 @@ function newTask(){
 function deleteTask(){
     if(confirm("Are you like super sure about this important decision???"))
     {
-        this.parentElement.removeChild(this);
+        this.remove();
     }
 }

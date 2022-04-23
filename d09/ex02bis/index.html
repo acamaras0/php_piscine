@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To do or not to do</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="todo.js"></script>
+    <style>
+        body {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+            font-size: 3vw;
+            background-image: url(https://i0.wp.com/dariusforoux.com/wp-content/uploads/2019/11/what-is-procrastination.png?);
+            width: 100%;
+        }
+
+        h1 {
+            margin-left: 20vw;
+            font-size: 3vw;
+        }
+        div{
+            font-size: 2.2vw;
+            color: rgb(0, 0, 0);
+        }
+
+        #ft_list{
+            margin-top:15px;
+            font-size: 24px;
+        }
+
+         #ft_list div{
+            padding:10px 40px 10px 60px;
+            line-height: 40px;
+            position: relative;
+        } 
+
+        #ft_list div:hover:after{
+            content:'✔';
+            right: 1.5vw;
+            position:absolute;
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        #ft_list div:before{
+            content:'☞';
+            left: 15px;
+            position:absolute;
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        button{
+            width:50%;
+            height:60px;
+            background: linear-gradient(yellow, green);
+            border:0px;
+            font-size:30px;
+            margin-left: 23.5vw;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+    </style>
+  </head>
+  <body>
+      <div class="tasks">
+          <h1>A list of all the things I should but NEVER do:</h1>
+          <div id="ft_list"></div>
+          <button id="new">New</button>
+        </div>
+  </body>
+</html>
