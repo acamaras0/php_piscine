@@ -31,13 +31,13 @@ function addTask(task){
 }
 
 function newTask(){
-    var task = prompt("Add your task to the stash!", '');
+    var task = prompt("Keep it comin'!", '');
     if (task)
         addTask(task);
 }
 
 function deleteTask(){
-    if(confirm("Are you like super sure about this important decision???"))
+    if(confirm("Are you like SUPER sure about this important decision?!!?!?!?!"))
     {
         this.parentElement.removeChild(this);
     }
